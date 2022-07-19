@@ -1,0 +1,34 @@
+* {
+    font-style: italic;
+}
+p {
+    color: darkcyan;
+    border: 4px solid black;
+}
+@media(max-width:400px) {
+h1 {
+    background-color: rgb(80, 255, 176);
+    ;
+}
+.centered {
+    text-align: center;
+}
+#savebutton {
+    background-color: grey; 
+    color: red;  
+}
+}
+
+@media(min-width:400px) {
+h1 {
+    background-color: rgb(183, 46, 140);
+    ;
+}
+.centered {
+    text-align: left;
+}
+#savebutton {
+    background-color: black; 
+    color: white;  
+}
+}
