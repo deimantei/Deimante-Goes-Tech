@@ -1,16 +1,3 @@
-/*let arr = [];
-for (var i = 0; i < 3; i++) {
-    arr.push(prompt('Enter value' + (i+1)));
-}
-
-arr.sort((a, b) => a - b);
-alert('Your sorted array: ' + arr);
-
-/*if (isNaN[0]||isNaN[1]|| isNaN[2]){
-    alert('Only numbers are allowed!');}
-else {
-    alert('Your sorted array: ' + arr);
-}*/
 let entry = '';
 let array = [];
 while (entry != 'STOP') {
@@ -24,7 +11,9 @@ while (entry != 'STOP') {
     }
     let number = Number(entry);
     array.push(number);
-    }
+}
+alert(sortNumberArray(array).toString());
+function sortNumberArray(array){
     for(let i=0; i<array.length -1; i++) {
         for(let j=0; j<array.length -1; j++){
             if(array[j]>array[j+1]) {
@@ -32,5 +21,7 @@ while (entry != 'STOP') {
                 array[j] = array[j+1];
                 array[j+1] = bufferVal;
             }        
-        }
+        }     
     }
+return array;
+}
