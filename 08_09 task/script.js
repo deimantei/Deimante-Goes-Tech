@@ -29,3 +29,4 @@ function division() {
     document.getElementById('result').innerText =
     'result is ' + result;
 }
+

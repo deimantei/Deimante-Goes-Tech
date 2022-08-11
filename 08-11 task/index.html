@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+<link href="style.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+<title> Task </title>
+</head>
+<body>
+<div class="container">
+        <div class="container text-center">
+            <h4>select filter</h4>
+            <select id="operation">
+                <option value="Starts with A">
+                    A
+                </option>
+                <option value="Starts with B">
+                    B
+                </option>
+            </select>
+        </div>
+    <table>
+        <div class="row">
+            <div class="col col-sm-4.5 vertical">
+            <h5>First name</h5>
+            <input id="name">
+            <input id="name">
+            <input id="name">
+            <input id="name">
+            <input id="name">
+        </div>
+        <div class="col col-sm-4.5 vertical">
+            <h5>Last name</h5>
+            <input id="lastName">
+            <input id="lastName">
+            <input id="lastName">
+            <input id="lastName">
+            <input id="lastName">
+        </div>
+        <div class="col col-sm-1 vertical">
+            <button onclick="addElement()">Add element</button>
+        </div>
+    </table>
+// iš naujo
+    <div class="container">
+        <div class="container text-center">
+            <h4>select filter</h4>
+            <select id="operation">
+                <option value="A">
+                    Starts with A
+                </option>
+                <option value="B">
+                    Starts with B
+                </option>
+                <option value="C">
+                    Starts with C
+                </option>
+            </select>
+        </div>
+    <table>
+        <div class="row">
+            <div class="col col-sm-4.5 vertical">
+            <h5>First name</h5>
+            <row id="A" onclick="filter('AFilter');">A</row>
+            <row id="B">B</row>
+            <row id="B">B</row>
+            <row id="A">A</row>
+            <row id="C">C</row>
+        </div>
+        <div class="col col-sm-4.5 vertical">
+            <h5>Last name</h5>
+            <row>F</row>
+            <row>X</row>
+            <row>X</row>
+            <row>G</row>
+            <row>F</row>
+        </div>
+        <div class="col col-sm-1 vertical">
+            <button onclick="addElement()">Add element</button>
+        </div>
+    </table>
+</div>
+</body>
+</html>

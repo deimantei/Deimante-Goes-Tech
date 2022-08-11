@@ -1,0 +1,6 @@
+.vertical {
+    display: grid;
+}
+.table {
+    border: 10px, black;
+}
