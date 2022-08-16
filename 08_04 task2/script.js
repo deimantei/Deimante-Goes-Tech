@@ -34,3 +34,6 @@ while (entry != 'STOP') {
             }        
         }
     }
+    alert(array.toString());
+    alert(array.sort());
+

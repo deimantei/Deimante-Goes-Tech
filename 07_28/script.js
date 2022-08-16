@@ -48,5 +48,6 @@ if (statement){
     alert('statement is not true');
 }
 else
-    alert('Hello')
+    alert('Hello') //galima be skliaustu rasyt
+    
 
