@@ -35,6 +35,15 @@
     font-size:medium;
     color:violet;
 }
+.operator {
+    width: 100px;
+    height: 50px;  
+    border-radius: 3px;
+    border: 1px solid #c4c4c4;
+    background-color: transparent;
+    font-size:medium;
+    color:violet;
+}
 .clear {
 
     background-color: #f0595f;
