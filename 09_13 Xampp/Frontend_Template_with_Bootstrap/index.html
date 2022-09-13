@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>THE BAND</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free singlepage web template created by GraphBerry">
+    <meta name="keywords" content="HTML5, Bootstrap 3, CSS3, javascript, PHP, Responsive, Mobile">
+    <meta name="author" content="GraphBerry.com"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://kit.fontawesome.com/9df0a0a2be.js" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<script src="js/custom.js"></script>
+</head>
+<body>
+    <audio src="music/bensound-autoreverse.mp3" id="my_audio" loop="loop" autoplay="autoplay"></audio>
+    <div class ='container'>
+        <button class='btn' onclick="pause()"> <i class="fa-solid fa-pause"></i> the music </button>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="form">
+                    <h2>Book a concert</h2>
+                    <span>Fill a form</span>
+                    <div class="divider divider-lg"></div>
+                    <table>
+                        <thead>
+                            <tr>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>E-mail</th>
+                            <th> Phone</th>
+                            <th>VIP</th>
+                            </tr>
+                        </thead>
+                        <tbody id='customersTab'>
+
+                        </tbody>
+                    </table>
+                    <form method="POST" action ='http://localhost:5000/add-customer'>
+                        <div class="form-group">
+                            <input name="name">
+                            <input name="lastname">
+                            <input name="email">
+                            <input name="phone">
+                            <input name="vip">
+                            <button class="btn">Book!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
