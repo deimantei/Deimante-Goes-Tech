@@ -55,14 +55,18 @@ connection.query(sqlQuery, [newCustomer.firstname, newCustomer.lastname,
     }))
 })
 
-// fs.readFile('AllCustomers.json', 'utf-8', (err, data) => {
-//     const customers = JSON.parse(data);
-//     customers.customers.push(newCustomer);
-//         fs.writeFile('AllCustomers.json', JSON.stringify(customers, null, 3), function(err){
-//          res.send('Customer is added');
-//         });
-//     })
- })
+
+
+
+
+fs.readFile('AllCustomers.json', 'utf-8', (err, data) => {
+    const customers = JSON.parse(data);
+    customers.customers.push(newCustomer);
+        fs.writeFile('AllCustomers.json', JSON.stringify(customers, null, 3), function(err){
+         res.send('Customer is added');
+        });
+    })
+})
 
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
