@@ -21,15 +21,56 @@
     <audio src="music/bensound-autoreverse.mp3" id="my_audio" loop="loop" autoplay="autoplay"></audio>
     <div class ='container'>
         <button class='btn' onclick="pause()"> <i class="fa-solid fa-pause"></i> the music </button>
+
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="form">
-                    <h2>Book a concert</h2>
+                    <h2>Registration</h2>
                     <span>Fill a form</span>
                     <div class="divider divider-lg"></div>
+                    
+                    <form method="POST" action ='http://localhost:5000/add-customer'>
+                        <div class="form-group">
+                        <div class="mb-3 row">
+                            <label for="name" class="col-sm-2 col-form-label">First Name*</label>
+                            <div class="col-sm-10">
+                              <input type="text" name="name" class="form-control-plaintext" id="name" placeholder="First Name" required>
+                            </div>
+                          </div>
+                          <div class="mb-3 row">
+                            <label for="lastname" class="col-sm-2 col-form-label">Last Name*</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control-plaintext" id="lastname" placeholder="Last Name" name="lastname" required>
+                            </div>
+                          </div>
+                          <div class="mb-3 row">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                              <input type="text" name="email" class="form-control-plaintext" id="email" placeholder="email@email.com"
+                              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}">
+                            </div>
+                          </div>
+                          <div class="mb-3 row">
+                            <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                            <div class="col-sm-10">
+                              <input type="text" name="phone" class="form-control-plaintext" id="phone" placeholder="+37000000000"
+                              pattern="\+37[0-2]{1}[0-9]{8}">
+                            </div>
+                          </div>
+                          <div class="mb-3 row">
+                            <label for="vip" class="col-sm-2 col-form-label">VIP</label>
+                            <div class="col-sm-10">
+                              <input type="text" name="vip" class="form-control-plaintext" id="vip" placeholder="Yes/No"
+                              pattern="(Yes|No)">
+                            </div>
+                            </div>
+                          <button class="btn btn-primary">Save</button>
+                            </div>
+                    </form>
                     <table>
                         <thead>
                             <tr>
+                            <th>ID</th>
                             <th>First name</th>
                             <th>Last name</th>
                             <th>E-mail</th>
@@ -38,21 +79,18 @@
                             </tr>
                         </thead>
                         <tbody id='customersTab'>
-
                         </tbody>
                     </table>
-                    <form method="POST" action ='http://localhost:5000/add-customer'>
-                        <div class="form-group">
-                            <input name="name">
-                            <input name="lastname">
-                            <input name="email">
-                            <input name="phone">
-                            <input name="vip">
-                            <button class="btn">Book!</button>
-                        </div>
-                    </form>
                 </div>
-            </div>
-    </div>
+                <form method="POST" action ='http://localhost:5000/delete-customer'>
+                    <label for="id" class="col-sm-2 col-form-label">ID</label>
+                    <div class="col-sm-10">
+                      <input type="number" name="deleteID" class="form-control-plaintext" id="deleteID" placeholder="ID">
+                    </div>
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+                </div>
+                </div>
+
 </body>
 </html>
