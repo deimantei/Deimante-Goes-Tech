@@ -42,7 +42,7 @@ function pause3() {
     if ($("#newsletter").valid()){
      confirm('Thank you!');}
 }
-function Dia(){document.getElementById("Di").showModal()}; 
+//function Dia(){document.getElementById("Di").showModal()}; 
                                
  //server and database
 $($.getJSON('http://localhost:5000/get-bandshow', 
