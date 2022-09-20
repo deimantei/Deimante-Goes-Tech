@@ -27,6 +27,23 @@ function pause3() {
     document.getElementById("song3").pause();
  }
 
+//function myFunction(){
+ //   document.getElementById('myModal').showModal();
+// }
+
+ //$("form").on('submit', function(){
+ //   $('.myModal').show();
+ //})
+//  $(document).on('click', '.alert', function(e) {
+//     bootbox.confirm("Thank you! See you later <3");
+// })
+
+ function difficult_function() {
+    if ($("#newsletter").valid()){
+     confirm('Thank you!');}
+}
+function Dia(){document.getElementById("Di").showModal()}; 
+                               
  //server and database
 $($.getJSON('http://localhost:5000/get-bandshow', 
     function(data){
@@ -56,6 +73,8 @@ $($.getJSON('http://localhost:5000/get-bandshow',
             customersTabElement.append(row);
         } 
     }));
+
+
 /*------------------------------------------------------------------
 Project:        Wooster - HTML onepage theme by GraphBerry.com
 Version:        1.0

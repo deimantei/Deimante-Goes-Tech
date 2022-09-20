@@ -1,12 +1,25 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const app = express();
 const fs = require('fs');
 const cors = require('cors');
-const bodyParser = require('body-parser');
+//middlewares
+app.use(express.static('public'));
 app.use(cors());
 app.use(bodyParser.urlencoded({
     extended:true
 }));
+//anksciau buvo true
+app.use(bodyParser.json());
+app.use(cookieParser('secret'));
+app.use(session({cookie:{maxAge: null}, saveUninitialized: true, resave:true, secret: 'victoria'}));
+
+const handlebars = require('express3-handlebars').create();
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+
 
 const mysql = require('mysql');
 
@@ -47,11 +60,12 @@ app.post('/add-customer', (req,res) => {
         bdate: req.body.bdate,
         phone: req.body.phone,
         email: req.body.email,
+        showid: req.body.showid,
     };
     
-    const sqlQuery = "INSERT INTO customers (firstname,lastname,bdate, email,phone) VALUES (?,?,?,?,?)";
+    const sqlQuery = "INSERT INTO customers (firstname,lastname,bdate, email,phone, showid) VALUES (?,?,?,?,?,?)";
     connection.query(sqlQuery, [newCustomer.firstname, newCustomer.lastname, newCustomer.bdate,
-        newCustomer.email, newCustomer.phone,
+        newCustomer.email, newCustomer.phone, newCustomer.showid,
     ], (error, results) => {
         if (error)
             throw error;
@@ -67,18 +81,10 @@ app.post('/add-subscriber', (req,res) => {
     const newSubscriber = {
         email: req.body.email,
     };
-    
+
     const sqlQuery = "INSERT INTO newsletter (email) VALUES (?)";
     connection.query(sqlQuery, [newSubscriber.email,
-    ], (error, results) => {
-        if (error)
-            throw error;
-        res.send(JSON.stringify({
-            "status": 200,
-            "error": null,
-            "response": "Thanks," + results.insertId + "!"
-        }))
-    })
+    ])
 })
 
 app.post('/add-message', (req,res) => {
@@ -105,3 +111,6 @@ app.post('/add-message', (req,res) => {
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
 })
+
+
+ src="http://code.jquery.com/jquery-1.11.0.min.js"
