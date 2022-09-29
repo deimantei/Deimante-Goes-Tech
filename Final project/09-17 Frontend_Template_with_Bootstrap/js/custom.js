@@ -37,43 +37,20 @@ function pause3() {
 //  $(document).on('click', '.alert', function(e) {
 //     bootbox.confirm("Thank you! See you later <3");
 // })
-
- function difficult_function() {
-    if ($("#newsletter").valid()){
+function alert_function() {
+    if ($("#booking").valid()){
      confirm('Thank you!');}
 }
+ function difficult_function() {
+    if ($("#newsletter").valid()){
+     confirm('Thank you! See you soon!');}
+}
+
+function contact_function() {
+    if ($("#contactform").valid()){
+     confirm('Thanks for your message!');}
+}
 //function Dia(){document.getElementById("Di").showModal()}; 
-                               
- //server and database
-$($.getJSON('http://localhost:5000/get-bandshow', 
-    function(data){
-        const show = data.response.bandshow;
-        const showTabElement = $('#showTab');
-        for(let i=0; i<customers.length; i++) {
-            const show = bandshow[i];
-
-            const row = document.createElement('tr');
-
-            const firstName = document.createElement('td');
-            firstName.innerHTML = customer.firstname;
-            row.append(firstName);
-
-            const lastName = document.createElement('td');
-            lastName.innerHTML = customer.lastname;
-            row.append(lastName);
-
-            const email = document.createElement('td');
-            email.innerHTML = customer.email;
-            row.append(email);
-
-            const phone = document.createElement('td');
-            phone.innerHTML = customer.phone;
-            row.append(phone);
-
-            customersTabElement.append(row);
-        } 
-    }));
-
 
 /*------------------------------------------------------------------
 Project:        Wooster - HTML onepage theme by GraphBerry.com

@@ -8,6 +8,7 @@
 <html>
 <head>
     <title>THE BAND</title>
+    <link rel="shortcut icon" href="img/favicon.ico" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -105,8 +106,8 @@
     <div class="video">
         <div class="video-wrapper">
             <div class="centred-container">
-                <h3>Our latest concert: </h3>
-                <a href="https://youtu.be/-6CXjdy3_Ik" id="popup-youtube"><i class="fa fa-play-circle"></i></a>
+                <!-- <h3>Our latest concert: </h3>
+                <a href="https://youtu.be/-6CXjdy3_Ik" id="popup-youtube"><i class="fa fa-play-circle"></i></a> -->
             </div>
         </div>
     </div>
@@ -122,17 +123,26 @@
     </div>
     <div class="container">
         <div class="text-center">
+            <table class="table align-middle">
+            <tr>
                 <audio src="music/bensound-backtothefuture.mp3" id="song1"></audio>
-                <button class="btn btn-primary" onclick="song1()"> The Band - Back to the Future <i class="fa-solid fa-play"></i> </button>
-                <button class="btn btn-primary" onclick="pause1()"> <i class="fa-solid fa-pause"></i></button><br><br>
-                
+                <th><button class="btn btn-primary" onclick="song1()"> The Band - Back to the Future <i class="fa-solid fa-play"></i> </button></th>
+                <th></th>
+                <th><button class="btn btn-primary" onclick="pause1()"> <i class="fa-solid fa-pause"></i></button></th>
+            </tr>
+            <tr>
                 <audio src="music/bensound-ontheroads.mp3" id="song3"></audio>
-                <button class="btn btn-primary" onclick="song3()">The Band - On the Roads <i class="fa-solid fa-play"></i> </button>
-                <button class="btn btn-primary" onclick="pause3()"> <i class="fa-solid fa-pause"></i></button><br><br>
-
+                <th><button class="btn btn-primary" onclick="song3()">The Band - On the Roads <i class="fa-solid fa-play"></i> </button></th>
+                <th></th>
+                <th><button class="btn btn-primary" onclick="pause3()"> <i class="fa-solid fa-pause"></i></button></th>
+            </tr>
+            <tr>
                 <audio src="music/bensound-indigo.mp3" id="song2"></audio>
-                <button class="btn btn-primary" onclick="song2()">The Band - Indigo <i class="fa-solid fa-play"></i> </button> <i class="fa-sharp fa-solid fa-sparkles">NEW!</i> 
-                <button class="btn btn-primary" onclick="pause2()"> <i class="fa-solid fa-pause"></i></button><br><br>
+                <th><button class="btn btn-primary" onclick="song2()">The Band - Indigo <i class="fa-solid fa-play"></i> </button></th>
+                <th> <i class="fa-sharp fa-solid fa-sparkles">NEW!</i> </th>
+                <th><button class="btn btn-primary" onclick="pause2()"> <i class="fa-solid fa-pause"></i></button></th>
+            </tr>
+            </table>
         </div>    
     </div>>
 </section>
@@ -201,7 +211,7 @@
                     <span>Fill a form</span>
                     <div class="divider divider-lg"></div>
                 </div>
-                    <form method="POST" action ='http://localhost:5000/add-customer'>
+                    <form method="POST" action ='http://localhost:5000/add-customer' id="booking">
                         <div class="form-group">
                         <div class="mb-3 row">
                             <label for="name" class="col-sm-4 col-form-label">First Name *</label>
@@ -227,16 +237,14 @@
                           <div class="mb-4 row">
                             <label for="email" class="col-sm-4 col-form-label">Email Address *</label>
                             <div class="col-sm-8">
-                              <input type="text" name="email" class="form-control-plaintext" id="email" placeholder="email@email.com" required
-                              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}">
+                              <input type="email" name="email" class="form-control-plaintext" id="email" placeholder="email@email.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}" required>
                             </div>
                           </div>
                           <br>
                           <div class="mb-3 row">
                             <label for="phone" class="col-sm-4 col-form-label">Phone Number</label>
                             <div class="col-sm-8">
-                              <input type="text" name="phone" class="form-control-plaintext" id="phone" placeholder="+37000000000"
-                              pattern="\+37[0-2]{1}[0-9]{8}">
+                              <input type="tel" name="phone" class="form-control-plaintext" id="phone" placeholder="+37000000000" pattern="\+37[0-2]{1}[0-9]{8}">
                             </div>
                           </div>
                           <br>
@@ -255,25 +263,9 @@
                     </div>
                     <p>* - required fields</p>
                     <div class='text-center'>
-                        <button class="btn btn-primary">Book <i class="fa-solid fa-ticket"></i></button>
+                        <button class="btn btn-primary" onClick="alert_function()">Book <i class="fa-solid fa-ticket"></i></button>
                         </div>
                         </div>
-                        </form>
-
-                        <form method="POST" action ='http://localhost:5000/get-bandshow'>
-                            <div class="form-group">
-                            <div class="mb-3 row">
-                            <label for="show" class="col-sm-2 col-form-label">Select show: *</label>
-                            <select id="show">
-                                <option></option>
-                                <option value="1">Barcelona 2022-10-30</option>
-                                <option value="2">Cologne 2022-11-15</option>
-                                <option value="3">Vilnius 2022-11-20</option>
-                                <option value="4">Riga 2022-11-28</option>
-                            </select>
-                            <button class="btn-btn-primary">Book</button>
-                            </div>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -360,10 +352,10 @@
                         <form method="post" action="http://localhost:5000/add-subscriber" role="form" class="form-inline" id="newsletter">
                             
                             <div class="col-md-9">
-                                <input type="text" placeholder="Enter your e-mail address..." class="subscribe-input" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}" required>
+                                <input type="email" placeholder="Enter your e-mail address..." class="subscribe-input" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}" required>
                             </div>
                             <div class="col-md-3">
-                                <button type="submit" class="btn-btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" data-toggle="tooltip" onClick="difficult_function()" >Subscribe</button>
+                                <button type="submit" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal" data-toggle="tooltip" onClick="difficult_function()" >Subscribe</button>
                             </div>
                             <div class="modal fade" id="myModal" role="dialog">
                                 <div class="modal-dialog">
@@ -418,7 +410,7 @@
             <span>+370 - 123 -456 - 789</span>
         </address>
     </div>
-    <form method="post" action="http://localhost:5000/add-message">
+    <form method="post" action="http://localhost:5000/add-message" id="contactform">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -439,7 +431,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary">Send</button>
+                <button type="submit" class="btn btn-primary" onClick="contact_function()">Send</button>
             </div>
         </div>
     </form>
@@ -452,14 +444,15 @@
             <img src="img/logo-white.png" class="logo-footer" />
                 <ul class="social">
                     <li class="wow bounceIn"><a href="https://www.facebook.com/diamonds.de" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                    <li class="wow bounceIn" data-wow-delay="0.1s"><a href="http://goo.gl/hUfpSB" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li class="wow bounceIn" data-wow-delay="0.1s"><a target="_blank"><i class="fa fa-twitter"></i></a></li>
                     <li class="wow bounceIn" data-wow-delay="0.2s"><a href="https://www.instagram.com/d.e.i.m.a.n.t.e/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                    <li class="wow bounceIn" data-wow-delay="0.3s"><a href="http://goo.gl/FPjuCE" target="_blank"><i class="fa fa-behance"></i></a></li>
-                    <li class="wow bounceIn" data-wow-delay="0.4s"><a href="http://goo.gl/UYjGTR" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-                    <li class="wow bounceIn" data-wow-delay="0.5s"><a href="http://goo.gl/r4xzR4" target="_blank"><i class="fa fa-google"></i></a></li>
+                    <li class="wow bounceIn" data-wow-delay="0.3s"><a target="_blank"><i class="fa fa-behance"></i></a></li>
+                    <li class="wow bounceIn" data-wow-delay="0.4s"><a target="_blank"><i class="fa fa-pinterest"></i></a></li>
+                    <li class="wow bounceIn" data-wow-delay="0.5s"><a target="_blank"><i class="fa fa-google"></i></a></li>
                 </ul>
+                <br>
                 <p>Theme created by <a href="http://graphberry.com" target="_blank">GraphBerry</p>
-                <p><a></a>Website created by Deimantė Stankūnaitė</p>
+                <p><a></a>Web page created by Deimantė Stankūnaitė</p>
             </div>
         </div>
     </div>

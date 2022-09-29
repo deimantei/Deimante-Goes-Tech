@@ -66,15 +66,7 @@ app.post('/add-customer', (req,res) => {
     const sqlQuery = "INSERT INTO customers (firstname,lastname,bdate, email,phone, showid) VALUES (?,?,?,?,?,?)";
     connection.query(sqlQuery, [newCustomer.firstname, newCustomer.lastname, newCustomer.bdate,
         newCustomer.email, newCustomer.phone, newCustomer.showid,
-    ], (error, results) => {
-        if (error)
-            throw error;
-        res.send(JSON.stringify({
-            "status": 200,
-            "error": null,
-            "response": "Customer ID : " + results.insertId + " created!"
-        }))
-    })
+    ])
 })
 
 app.post('/add-subscriber', (req,res) => {
@@ -97,15 +89,7 @@ app.post('/add-message', (req,res) => {
     
     const sqlQuery = "INSERT INTO fanmail (subject,name,email,message) VALUES (?,?,?,?)";
     connection.query(sqlQuery, [newMessage.subject, newMessage.name, newMessage.email, newMessage.message,
-    ], (error, results) => {
-        if (error)
-            throw error;
-        res.send(JSON.stringify({
-            "status": 200,
-            "error": null,
-            "response": "Thanks for reaching us, " + newMessage.name + "!"
-        }))
-    })
+    ])
 })
 
 app.listen(5000, () => {
